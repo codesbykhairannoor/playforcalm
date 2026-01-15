@@ -1,0 +1,59 @@
+{
+  "common": {
+    "loading": "Loading Peace...",
+    "back": "Back",
+    "close": "Close"
+  },
+  "nav": {
+    "logo": "PlayForCalm",
+    "sudoku": "Sudoku",
+    "puzzle": "Puzzle"
+  },
+  "gamification": {
+    "streak": "Focus Streak",
+    "level": "Novice Calm",
+    "xp": "XP",
+    "daily_goal": "Daily Quest",
+    "progress_text": "Complete 1 more game for daily bonus!",
+    "complete": "Completed"
+  },
+  "home": {
+    "greeting_morning": "Good Morning,",
+    "greeting_afternoon": "Good Afternoon,",
+    "greeting_evening": "Good Evening,",
+    "hero_title": "Ready to Train",
+    "hero_highlight": "Your Focus?",
+    "subtitle": "Simple games to train your brain and calm your mind. No scores, no pressure.",
+    "card_play": "PLAY NOW",
+    "card_sudoku_title": "Sudoku Zen",
+    "card_sudoku_desc": "Arrange numbers, declutter your mind with logic.",
+    "card_puzzle_title": "Memory Lane",
+    "card_puzzle_desc": "Visualize and piece together your fond memories."
+  },
+  "sudoku": {
+    "difficulty_select": "Select Focus Mode",
+    "easy": "Relax (Easy)",
+    "medium": "Focus (Medium)",
+    "hard": "Deep Work (Hard)",
+    "timer": "Time",
+    "mistakes": "Mistakes",
+    "notes": "Notes",
+    "new_game": "New Game",
+    "paused_title": "Paused",
+    "paused_desc": "Take a deep breath...",
+    "resume_btn": "Resume Focus",
+    "won_title": "Serenity Achieved! ✨",
+    "won_desc": "Great job! You've trained your focus today.",
+    "play_again": "Play Again"
+  },
+  "puzzle": {
+    "upload_title": "Choose Image",
+    "upload_btn": "Upload Your Photo",
+    "use_sample": "Use Sample Image",
+    "moves": "Moves",
+    "won_title": "Memory Restored! 📸"
+  },
+  "footer": {
+    "text": "Built for focus, not addiction."
+  }
+}

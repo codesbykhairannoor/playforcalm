@@ -1,0 +1,59 @@
+{
+  "common": {
+    "loading": "Memuat Ketenangan...",
+    "back": "Kembali",
+    "close": "Tutup"
+  },
+  "nav": {
+    "logo": "PlayForCalm",
+    "sudoku": "Sudoku",
+    "puzzle": "Puzzle"
+  },
+  "gamification": {
+    "streak": "Hari Fokus",
+    "level": "Novice Calm",
+    "xp": "XP",
+    "daily_goal": "Misi Harian",
+    "progress_text": "Selesaikan 1 game lagi untuk bonus harian!",
+    "complete": "Selesai"
+  },
+  "home": {
+    "greeting_morning": "Selamat Pagi,",
+    "greeting_afternoon": "Selamat Siang,",
+    "greeting_evening": "Selamat Malam,",
+    "hero_title": "Siap Melatih",
+    "hero_highlight": "Fokusmu?",
+    "subtitle": "Game sederhana untuk melatih otak dan menenangkan pikiran. Tanpa skor, tanpa tekanan.",
+    "card_play": "MAIN SEKARANG",
+    "card_sudoku_title": "Sudoku Zen",
+    "card_sudoku_desc": "Susun angka, rapikan pikiran dengan logika sederhana.",
+    "card_puzzle_title": "Memory Lane",
+    "card_puzzle_desc": "Visualisasikan kembali kenangan indahmu."
+  },
+  "sudoku": {
+    "difficulty_select": "Pilih Mode Fokus",
+    "easy": "Santai (Easy)",
+    "medium": "Fokus (Medium)",
+    "hard": "Deep Work (Hard)",
+    "timer": "Waktu",
+    "mistakes": "Salah",
+    "notes": "Catatan",
+    "new_game": "Game Baru",
+    "paused_title": "Istirahat Sejenak",
+    "paused_desc": "Tarik napas dalam-dalam...",
+    "resume_btn": "Lanjut Fokus",
+    "won_title": "Pikiran Tenang Tercapai! ✨",
+    "won_desc": "Hebat! Kamu berhasil melatih fokusmu hari ini.",
+    "play_again": "Main Lagi"
+  },
+  "puzzle": {
+    "upload_title": "Pilih Gambar",
+    "upload_btn": "Upload Foto Sendiri",
+    "use_sample": "Pakai Gambar Sample",
+    "moves": "Langkah",
+    "won_title": "Kenangan Tersusun Rapi! 📸"
+  },
+  "footer": {
+    "text": "Dibuat untuk fokus, bukan kecanduan."
+  }
+}

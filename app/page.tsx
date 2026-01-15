@@ -1,65 +1,118 @@
-import Image from "next/image";
+"use client";
+import Link from "next/link";
+import { Grid3x3, LayoutGrid, CheckCircle2, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const { dict } = useLanguage();
+  const [greeting, setGreeting] = useState("");
+
+  // Logic sapaan berdasarkan waktu (Pagi/Siang/Malam)
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour < 12) setGreeting(dict.home.greeting_morning);
+    else if (hour < 18) setGreeting(dict.home.greeting_afternoon);
+    else setGreeting(dict.home.greeting_evening);
+  }, [dict]);
+
+  // Animasi container biar muncul satu-satu
+  const containerVars = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVars = {
+    hidden: { y: 20, opacity: 0 },
+    show: { y: 0, opacity: 1 }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <motion.div 
+      variants={containerVars}
+      initial="hidden"
+      animate="show"
+      className="min-h-screen pt-28 pb-10 px-4 max-w-5xl mx-auto flex flex-col items-center"
+    >
+      
+      {/* 1. SECTION GREETING & PROGRESS */}
+      <motion.div variants={itemVars} className="w-full text-center mb-12">
+        <h2 className="text-slate-400 font-medium text-lg mb-1">{greeting} Player 1</h2>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight mb-6">
+          {dict.home.hero_title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-600">{dict.home.hero_highlight}</span>
+        </h1>
+
+        {/* Gamification: Daily Goal Card */}
+        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 max-w-md mx-auto flex items-center gap-4 transform hover:scale-105 transition-transform duration-300">
+          <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-600">
+            <CheckCircle2 size={24} />
+          </div>
+          <div className="text-left flex-1">
+            <div className="flex justify-between text-xs font-bold text-slate-500 mb-1">
+              <span>{dict.gamification.daily_goal}</span>
+              <span>1/2</span>
+            </div>
+            {/* Progress Bar */}
+            <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+              <div className="w-1/2 h-full bg-teal-500 rounded-full" />
+            </div>
+            <p className="text-[10px] text-slate-400 mt-1">{dict.gamification.progress_text}</p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </motion.div>
+
+      {/* 2. SECTION GAME CARDS (QUESTS) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
+        
+        {/* QUEST 1: SUDOKU */}
+        <motion.div variants={itemVars}>
+          <Link href="/sudoku" className="group relative block h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition-opacity" />
+            <div className="relative bg-white p-8 rounded-3xl border border-slate-100 h-full flex flex-col shadow-sm group-hover:-translate-y-2 transition-transform duration-300">
+              <div className="flex justify-between items-start mb-6">
+                <div className="p-4 bg-indigo-50 rounded-2xl text-indigo-600">
+                  <Grid3x3 size={32} />
+                </div>
+                <span className="px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold text-slate-500">LOGIC</span>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-slate-800 mb-2">{dict.home.card_sudoku_title}</h3>
+              <p className="text-slate-500 text-sm mb-6 flex-grow">{dict.home.card_sudoku_desc}</p>
+              
+              <div className="flex items-center text-indigo-600 font-bold text-sm">
+                {dict.home.card_play} <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
+        </motion.div>
+
+        {/* QUEST 2: PUZZLE */}
+        <motion.div variants={itemVars}>
+          <Link href="/puzzle" className="group relative block h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition-opacity" />
+            <div className="relative bg-white p-8 rounded-3xl border border-slate-100 h-full flex flex-col shadow-sm group-hover:-translate-y-2 transition-transform duration-300">
+              <div className="flex justify-between items-start mb-6">
+                <div className="p-4 bg-pink-50 rounded-2xl text-pink-600">
+                  <LayoutGrid size={32} />
+                </div>
+                <span className="px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold text-slate-500">VISUAL</span>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-slate-800 mb-2">{dict.home.card_puzzle_title}</h3>
+              <p className="text-slate-500 text-sm mb-6 flex-grow">{dict.home.card_puzzle_desc}</p>
+              
+              <div className="flex items-center text-pink-600 font-bold text-sm">
+                {dict.home.card_play} <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
+        </motion.div>
+
+      </div>
+    </motion.div>
   );
 }
