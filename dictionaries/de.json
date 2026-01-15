@@ -1,0 +1,89 @@
+{
+  "common": {
+    "loading": "Ruhe wird geladen...",
+    "back": "Zurück",
+    "close": "Schließen"
+  },
+  "nav": {
+    "logo": "PlayForCalm",
+    "sudoku": "Sudoku",
+    "puzzle": "Puzzle",
+    "home": "Startseite"
+  },
+  "gamification": {
+    "streak": "Fokus-Serie",
+    "level": "Ruhe-Anfänger",
+    "xp": "EP",
+    "daily_goal": "Tägliche Quest",
+    "progress_text": "Noch 1 Spiel für den täglichen Bonus!",
+    "complete": "Abgeschlossen"
+  },
+  "home": {
+    "greeting_morning": "Guten Morgen,",
+    "greeting_afternoon": "Guten Tag,",
+    "greeting_evening": "Guten Abend,",
+    "hero_title": "Bereit, deinen",
+    "hero_highlight": "Fokus zu trainieren?",
+    "subtitle": "Einfache Spiele, um dein Gehirn zu trainieren und deinen Geist zu beruhigen. Ohne Druck.",
+    "card_play": "JETZT SPIELEN",
+    "card_sudoku_title": "Zen-Sudoku",
+    "card_sudoku_desc": "Zahlen ordnen, den Geist mit Logik klären.",
+    "card_puzzle_title": "Erinnerungspfad",
+    "card_puzzle_desc": "Visualisiere und setze deine schönsten Erinnerungen zusammen.",
+    "benefits_title": "Die Reise zur Gelassenheit",
+    "benefit_1_title": "Digital Detox",
+    "benefit_1_desc": "Trenne dich für eine Weile von Benachrichtigungen und Social-Media-Lärm.",
+    "benefit_2_title": "Tiefer Fokus",
+    "benefit_2_desc": "Trainiere dein Gehirn, bei einfachen Aufgaben ruhig zu bleiben.",
+    "benefit_3_title": "Klarer Geist",
+    "benefit_3_desc": "Erreiche den 'Flow'-Zustand, in dem Angst durch innere Zufriedenheit ersetzt wird.",
+    "quote_text": "Ruhe ist nicht die Abwesenheit von Problemen, sondern die Fähigkeit, mit ihnen umzugehen.",
+    "quote_title": "Heutige Philosophie",
+    "step_o": "Schritt"
+  },
+  "sudoku": {
+    "difficulty_label": "Schwierigkeit",
+    "mistakes_label": "Fehler",
+    "time_label": "Zeit",
+    "difficulty_select": "Modus wählen",
+    "easy": "Einfach",
+    "medium": "Mittel",
+    "hard": "Schwer",
+    "timer": "Zeit",
+    "mistakes": "Fehler",
+    "notes": "Notizen",
+    "new_game": "Neues Spiel",
+    "pause": "Pause",
+    "resume": "Fortsetzen",
+    "paused_status": "PAUSIERT",
+    "paused_title": "Pause",
+    "paused_desc": "Tief durchatmen...",
+    "resume_btn": "Fokus fortsetzen",
+    "won_title": "Gelassenheit erreicht! ✨",
+    "won_desc": "Gut gemacht! Du hast heute deinen Fokus trainiert.",
+    "play_again": "Nochmal spielen",
+    "game_over": "Game Over",
+    "too_many_mistakes": "Zu viele Fehler.",
+    "try_again": "Nochmal versuchen"
+  },
+  "puzzle": {
+    "title": "Puzzle",
+    "desc": "Setze verstreute Fragmente zu einer ganzen Erinnerung zusammen.",
+    "upload_label": "Foto wählen",
+    "change_photo": "Foto ändern",
+    "pieces_count": "Teile",
+    "time": "Zeit",
+    "difficulty": "Anzahl der Teile",
+    "start_game": "Puzzle starten",
+    "won_title": "Perfekt! 🧩",
+    "won_desc": "Jedes Teil hat seinen Platz gefunden.",
+    "select_image": "Foto wählen",
+    "pieces": "Teile",
+    "time_taken": "Spielzeit",
+    "play_again": "Nochmal spielen",
+    "back_to_menu": "Bild / Level wechseln"
+  },
+  "footer": {
+    "text": "Für Fokus gebaut, nicht für Sucht."
+  }
+}
