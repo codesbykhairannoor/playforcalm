@@ -1,0 +1,89 @@
+{
+  "common": {
+    "loading": "Cargando Paz...",
+    "back": "Volver",
+    "close": "Cerrar"
+  },
+  "nav": {
+    "logo": "PlayForCalm",
+    "sudoku": "Sudoku",
+    "puzzle": "Rompecabezas",
+    "home": "Inicio"
+  },
+  "gamification": {
+    "streak": "Racha de Enfoque",
+    "level": "Novato Calm",
+    "xp": "XP",
+    "daily_goal": "Misión Diaria",
+    "progress_text": "¡Completa 1 juego más para el bono diario!",
+    "complete": "Completado"
+  },
+  "home": {
+    "greeting_morning": "Buenos Días,",
+    "greeting_afternoon": "Buenas Tardes,",
+    "greeting_evening": "Buenas Noches,",
+    "hero_title": "¿Listo para Entrenar",
+    "hero_highlight": "tu Enfoque?",
+    "subtitle": "Juegos simples para entrenar tu cerebro y calmar tu mente. Sin puntajes, sin presión.",
+    "card_play": "JUGAR AHORA",
+    "card_sudoku_title": "Sudoku Zen",
+    "card_sudoku_desc": "Organiza números, despeja tu mente con lógica.",
+    "card_puzzle_title": "Camino de los Recuerdos",
+    "card_puzzle_desc": "Visualiza y une tus recuerdos más queridos.",
+    "benefits_title": "El Viaje hacia la Serenidad",
+    "benefit_1_title": "Desintoxicación Digital",
+    "benefit_1_desc": "Desconéctate de las notificaciones y el ruido de las redes sociales.",
+    "benefit_2_title": "Enfoque Profundo",
+    "benefit_2_desc": "Entrena tu cerebro para mantener la calma en tareas simples.",
+    "benefit_3_title": "Mente Clara",
+    "benefit_3_desc": "Logra el estado de 'Flow' donde la ansiedad es reemplazada por paz interior.",
+    "quote_text": "La calma no es la ausencia de problemas, sino la capacidad de lidiar con ellos.",
+    "quote_title": "Filosofía de Hoy",
+    "step_o": "Paso"
+  },
+  "sudoku": {
+    "difficulty_label": "Dificultad",
+    "mistakes_label": "Errores",
+    "time_label": "Tiempo",
+    "difficulty_select": "Seleccionar Modo",
+    "easy": "Fácil",
+    "medium": "Medio",
+    "hard": "Difícil",
+    "timer": "Tiempo",
+    "mistakes": "Errores",
+    "notes": "Notas",
+    "new_game": "Nuevo Juego",
+    "pause": "Pausa",
+    "resume": "Reanudar",
+    "paused_status": "PAUSADO",
+    "paused_title": "Pausado",
+    "paused_desc": "Respira hondo...",
+    "resume_btn": "Reanudar Enfoque",
+    "won_title": "¡Serenidad Alcanzada! ✨",
+    "won_desc": "¡Buen trabajo! Has entrenado tu enfoque hoy.",
+    "play_again": "Jugar de Nuevo",
+    "game_over": "Juego Terminado",
+    "too_many_mistakes": "Demasiados errores.",
+    "try_again": "Intentar de Nuevo"
+  },
+  "puzzle": {
+    "title": "Rompecabezas",
+    "desc": "Une fragmentos dispersos en un recuerdo completo.",
+    "upload_label": "Elegir Foto",
+    "change_photo": "Cambiar Foto",
+    "pieces_count": "Piezas",
+    "time": "Tiempo",
+    "difficulty": "Número de Piezas",
+    "start_game": "Iniciar Rompecabezas",
+    "won_title": "¡Perfecto! 🧩",
+    "won_desc": "Cada pieza ha encontrado su lugar.",
+    "select_image": "Elegir Foto",
+    "pieces": "Piezas",
+    "time_taken": "Tiempo de Juego",
+    "play_again": "Jugar de Nuevo",
+    "back_to_menu": "Cambiar Imagen / Nivel"
+  },
+  "footer": {
+    "text": "Creado para el enfoque, no para la adicción."
+  }
+}

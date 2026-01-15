@@ -1,44 +1,38 @@
 "use client";
-import { createContext, useContext, useState, useEffect } from 'react';
-import id from '../dictionaries/id.json';
-import en from '../dictionaries/en.json';
-
-// Setup Dictionary
-const dictionaries = { id, en };
+import { createContext, useContext, useState, useEffect } from "react";
+import en from "@/dictionaries/en.json";
+import id from "@/dictionaries/id.json";
+import zh from "@/dictionaries/zh.json";
+import es from "@/dictionaries/es.json";
+import de from "@/dictionaries/de.json";
+import ms from "@/dictionaries/ms.json";
 
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  // Default bahasa: 'id' (Indonesia)
-  const [language, setLanguage] = useState('id');
-  const [dict, setDict] = useState(dictionaries.id);
+  const [lang, setLang] = useState("id");
 
-  // Fungsi ganti bahasa
-  const toggleLanguage = () => {
-    const newLang = language === 'id' ? 'en' : 'id';
-    setLanguage(newLang);
-    setDict(dictionaries[newLang]);
-    // Simpan ke localStorage biar pas refresh gak balik ke awal
-    localStorage.setItem('playforcalm-lang', newLang);
-  };
-
-  // Cek localStorage pas pertama kali load
   useEffect(() => {
-    const savedLang = localStorage.getItem('playforcalm-lang');
-    if (savedLang && dictionaries[savedLang]) {
-      setLanguage(savedLang);
-      setDict(dictionaries[savedLang]);
-    }
+    const savedLang = localStorage.getItem("app-lang");
+    if (savedLang) setLang(savedLang);
   }, []);
 
+  // FUNGSI INI HARUS BERNAMA changeLanguage
+  const changeLanguage = (newLang) => {
+    setLang(newLang);
+    localStorage.setItem("app-lang", newLang);
+  };
+
+  const dictionaries = { id, en, zh, es, de, ms };
+  const dict = dictionaries[lang] || en;
+
   return (
-    <LanguageContext.Provider value={{ language, dict, toggleLanguage }}>
+    <LanguageContext.Provider value={{ dict, changeLanguage, lang }}>
       {children}
     </LanguageContext.Provider>
   );
 }
 
-// Custom Hook biar gampang dipanggil
 export function useLanguage() {
   return useContext(LanguageContext);
 }

@@ -1,0 +1,89 @@
+{
+  "common": {
+    "loading": "Memuatkan Ketenangan...",
+    "back": "Kembali",
+    "close": "Tutup"
+  },
+  "nav": {
+    "logo": "PlayForCalm",
+    "sudoku": "Sudoku",
+    "puzzle": "Teka-teki",
+    "home": "Utama"
+  },
+  "gamification": {
+    "streak": "Rentetan Fokus",
+    "level": "Novice Calm",
+    "xp": "XP",
+    "daily_goal": "Misi Harian",
+    "progress_text": "Selesaikan 1 lagi permainan untuk bonus harian!",
+    "complete": "Selesai"
+  },
+  "home": {
+    "greeting_morning": "Selamat Pagi,",
+    "greeting_afternoon": "Selamat Tengah Hari,",
+    "greeting_evening": "Selamat Petang,",
+    "hero_title": "Sedia Melatih",
+    "hero_highlight": "Fokus Anda?",
+    "subtitle": "Permainan mudah untuk melatih otak dan menenangkan fikiran. Tanpa skor, tanpa tekanan.",
+    "card_play": "MAIN SEKARANG",
+    "card_sudoku_title": "Sudoku Zen",
+    "card_sudoku_desc": "Susun nombor, kemaskan fikiran dengan logik mudah.",
+    "card_puzzle_title": "Laluan Memori",
+    "card_puzzle_desc": "Visualisasikan dan cantumkan kembali kenangan indah anda.",
+    "benefits_title": "Perjalanan Menuju Ketenangan",
+    "benefit_1_title": "Detoks Digital",
+    "benefit_1_desc": "Lepaskan diri daripada notifikasi dan kebisingan media sosial buat seketika.",
+    "benefit_2_title": "Fokus Mendalam",
+    "benefit_2_desc": "Latih otak untuk kekal tenang semasa menyelesaikan tugasan mudah.",
+    "benefit_3_title": "Minda Jernih",
+    "benefit_3_desc": "Capai keadaan 'Flow' di mana kegelisahan diganti dengan kepuasan batin.",
+    "quote_text": "Ketenangan bukanlah ketiadaan masalah, tetapi kemampuan untuk menghadapinya dengan fikiran jernih.",
+    "quote_title": "Falsafah Hari Ini",
+    "step_o": "Langkah"
+  },
+  "sudoku": {
+    "difficulty_label": "Tahap Kesukaran",
+    "mistakes_label": "Kesalahan",
+    "time_label": "Masa",
+    "difficulty_select": "Pilih Mod",
+    "easy": "Mudah",
+    "medium": "Sederhana",
+    "hard": "Sukar",
+    "timer": "Masa",
+    "mistakes": "Salah",
+    "notes": "Nota",
+    "new_game": "Permainan Baru",
+    "pause": "Jeda",
+    "resume": "Sambung",
+    "paused_status": "DIJEDA",
+    "paused_title": "Jeda",
+    "paused_desc": "Tarik nafas dalam-dalam...",
+    "resume_btn": "Sambung Fokus",
+    "won_title": "Ketenangan Dicapai! ✨",
+    "won_desc": "Syabas! Anda telah melatih fokus anda hari ini.",
+    "play_again": "Main Lagi",
+    "game_over": "Permainan Tamat",
+    "too_many_mistakes": "Terlalu banyak kesalahan.",
+    "try_again": "Cuba Lagi"
+  },
+  "puzzle": {
+    "title": "Teka-teki",
+    "desc": "Cantumkan serpihan yang bertaburan menjadi satu kenangan utuh.",
+    "upload_label": "Pilih Foto",
+    "change_photo": "Tukar Foto",
+    "pieces_count": "Kepingan",
+    "time": "Masa",
+    "difficulty": "Jumlah Kepingan",
+    "start_game": "Mula Teka-teki",
+    "won_title": "Sempurna! 🧩",
+    "won_desc": "Setiap kepingan telah menemui tempatnya.",
+    "select_image": "Pilih Foto",
+    "pieces": "Keping",
+    "time_taken": "Masa Bermain",
+    "play_again": "Main Lagi",
+    "back_to_menu": "Tukar Gambar / Tahap"
+  },
+  "footer": {
+    "text": "Dibina untuk fokus, bukan ketagihan."
+  }
+}
