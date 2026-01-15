@@ -55,13 +55,25 @@
     "too_many_mistakes": "Too many mistakes.",
     "try_again": "Try Again"
   },
-  "puzzle": {
-    "upload_title": "Choose Image",
-    "upload_btn": "Upload Your Photo",
-    "use_sample": "Use Sample Image",
-    "moves": "Moves",
-    "won_title": "Memory Restored! 📸"
+  
+"puzzle": {
+    "title": "Puzzle",
+    "desc": "Piece together scattered fragments into a whole memory.",
+    "upload_label": "Choose Photo",
+    "change_photo": "Change Photo",
+    "pieces_count": "Pieces",
+    "time": "Time",
+    "difficulty": "Piece Count",
+    "start_game": "Start Puzzle",
+    "won_title": "Perfect! 🧩",
+    "won_desc": "Every piece has found its place.",
+    "select_image": "Choose Photo",
+    "pieces": "Pieces",
+    "time_taken": "Play Time",
+    "play_again": "Play Again",
+    "back_to_menu": "Switch Image / Level"
   },
+
   "footer": {
     "text": "Built for focus, not addiction."
   }

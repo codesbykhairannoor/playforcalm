@@ -56,11 +56,21 @@
     "try_again": "Coba Lagi"
   },
   "puzzle": {
-    "upload_title": "Pilih Gambar",
-    "upload_btn": "Upload Foto Sendiri",
-    "use_sample": "Pakai Gambar Sample",
-    "moves": "Langkah",
-    "won_title": "Kenangan Tersusun Rapi! 📸"
+    "title": "Puzzle",
+    "desc": "Satukan kepingan yang berserakan menjadi kenangan utuh.",
+    "upload_label": "Pilih Foto",
+    "change_photo": "Ganti Foto",
+    "pieces_count": "Keping",
+    "time": "Waktu",
+    "difficulty": "Jumlah Keping",
+    "start_game": "Mulai Susun",
+    "won_title": "Sempurna! 🧩",
+    "won_desc": "Setiap kepingan telah menemukan tempatnya.",
+    "select_image": "Pilih Gambar",
+    "pieces": "Keping",
+    "time_taken": "Waktu Bermain",
+    "play_again": "Main Lagi",
+    "back_to_menu": "Ganti Gambar / Level"
   },
   "footer": {
     "text": "Dibuat untuk fokus, bukan kecanduan."
