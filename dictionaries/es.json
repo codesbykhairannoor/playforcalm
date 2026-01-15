@@ -24,6 +24,7 @@
     "greeting_evening": "Buenas Noches,",
     "hero_title": "¿Listo para Entrenar",
     "hero_highlight": "tu Enfoque?",
+    "hero_button": "Empezar a Explorar",
     "subtitle": "Juegos simples para entrenar tu cerebro y calmar tu mente. Sin puntajes, sin presión.",
     "card_play": "JUGAR AHORA",
     "card_sudoku_title": "Sudoku Zen",
@@ -82,6 +83,9 @@
     "time_taken": "Tiempo de Juego",
     "play_again": "Jugar de Nuevo",
     "back_to_menu": "Cambiar Imagen / Nivel"
+  },
+  "jigsaw": {
+    "upload": "Subir"
   },
   "footer": {
     "text": "Creado para el enfoque, no para la adicción."

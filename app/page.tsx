@@ -47,12 +47,13 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link 
-              href="#games" 
-              className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-slate-400/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-3 group"
-            >
-              Mulai Eksplorasi 
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+  href="#games" 
+  className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-slate-400/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-3 group"
+>
+  {/* SEKARANG MENGGUNAKAN KAMUS */}
+  {dict.home.hero_button} 
+  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+</Link>
           </div>
         </motion.div>
       </section>

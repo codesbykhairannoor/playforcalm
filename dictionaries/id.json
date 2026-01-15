@@ -29,6 +29,7 @@
     "card_sudoku_title": "Sudoku Zen",
     "card_sudoku_desc": "Susun angka, rapikan pikiran dengan logika sederhana.",
     "card_puzzle_title": "Memory Lane",
+    "hero_button": "Mulai Eksplorasi",
     "card_puzzle_desc": "Visualisasikan kembali kenangan indahmu.",
     "benefits_title": "Perjalanan Menuju Ketenangan",
     "benefit_1_title": "Digital Detox",
@@ -85,5 +86,8 @@
   },
   "footer": {
     "text": "Dibuat untuk fokus, bukan kecanduan."
+  },
+  "jigsaw": {
+    "upload": "Unggah"
   }
 }

@@ -24,6 +24,7 @@
     "greeting_evening": "Selamat Petang,",
     "hero_title": "Sedia Melatih",
     "hero_highlight": "Fokus Anda?",
+    "hero_button": "Mula Meneroka",
     "subtitle": "Permainan mudah untuk melatih otak dan menenangkan fikiran. Tanpa skor, tanpa tekanan.",
     "card_play": "MAIN SEKARANG",
     "card_sudoku_title": "Sudoku Zen",
@@ -82,6 +83,9 @@
     "time_taken": "Masa Bermain",
     "play_again": "Main Lagi",
     "back_to_menu": "Tukar Gambar / Tahap"
+  },
+  "jigsaw": {
+    "upload": "Muat Naik"
   },
   "footer": {
     "text": "Dibina untuk fokus, bukan ketagihan."

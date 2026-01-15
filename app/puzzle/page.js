@@ -3,12 +3,13 @@ import { useEffect, useState, useRef } from "react";
 import { useJigsaw } from "@/hooks/useJigsaw";
 import { useLanguage } from "@/context/LanguageContext";
 import Confetti from "react-confetti";
-import { ArrowLeft, Play, Pause, Eye, Maximize, XCircle, X } from "lucide-react"; // Tambah icon X
+import { X, AlertTriangle } from "lucide-react"; 
 
 // Import Components
 import JigsawBoard from "@/components/puzzle/JigsawBoard";
 import JigsawControls from "@/components/puzzle/JigsawControls";
 import JigsawOverlay from "@/components/puzzle/JigsawOverlay";
+import PuzzleToolbar from "@/components/puzzle/PuzzleToolbar"; 
 
 export default function PuzzlePage() {
   const { dict } = useLanguage();
@@ -22,6 +23,7 @@ export default function PuzzlePage() {
   } = useJigsaw();
 
   const [showPreview, setShowPreview] = useState(false);
+  const [showQuitConfirm, setShowQuitConfirm] = useState(false); 
   const gameContainerRef = useRef(null);
 
   useEffect(() => { setGameState('menu'); }, []);
@@ -32,6 +34,16 @@ export default function PuzzlePage() {
     } else {
       document.exitFullscreen();
     }
+  };
+
+  const handleQuitRequest = () => {
+    if (!isPaused) togglePause();
+    setShowQuitConfirm(true);
+  };
+
+  const confirmQuit = () => {
+    setGameState('menu');
+    setShowQuitConfirm(false);
   };
 
   return (
@@ -46,7 +58,7 @@ export default function PuzzlePage() {
         </div>
       )}
 
-      {/* === 1. AREA MENU === */}
+      {/* === 1. TAMPILAN MENU === */}
       {gameState === 'menu' ? (
          <JigsawControls 
             dict={dict}
@@ -57,50 +69,78 @@ export default function PuzzlePage() {
             startGame={startGame}
          />
       ) : (
-        /* === 2. AREA MAIN GAME === */
+        /* === 2. TAMPILAN MAIN GAME === */
         <div 
           ref={gameContainerRef}
           className="relative w-full max-w-6xl h-[85vh] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col animate-in zoom-in duration-300 border-4 border-slate-800"
         >
-            {/* Header Game Floating */}
+            {/* Header Floating */}
             <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-20 pointer-events-none">
-               {/* Progress Bar (Kiri) */}
                <div className="pointer-events-auto flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-white font-bold text-sm shadow-lg">
-                  {/* Tampilkan Real Pieces Length biar user gak bingung kok beda sama yg dipilih */}
                   <span>{progress} / {pieces.length} {dict.puzzle.pieces}</span>
                   <div className="w-px h-4 bg-white/20"></div>
-                  <span className="font-mono text-teal-300">{timer}</span>
+                  <span className={`font-mono ${isPaused ? 'text-yellow-400' : 'text-teal-300'}`}>
+                    {timer} {isPaused && "(PAUSED)"}
+                  </span>
                </div>
             </div>
 
             {/* BOARD AREA */}
             <div className="flex-1 flex items-center justify-center p-4 md:p-10 overflow-hidden relative">
-                <JigsawBoard 
-                  pieces={pieces}
-                  gridDimensions={gridDimensions}
-                  image={image}
-                  aspectRatio={aspectRatio}
-                  handlePieceDrop={handlePieceDrop}
-                  gameState={gameState}
-                  isPaused={isPaused}
-                />
+                
+                {/* 👇 BAGIAN INI YANG DIPERBAIKI (Wrapper Div) 
+                   Ditambahin class: "w-full flex justify-center items-center"
+                   Biar JigsawBoard gak kegencet jadi 0 pixel.
+                */}
+                <div className={`w-full flex justify-center items-center transition-all duration-300 ${isPaused ? "blur-md scale-95 opacity-50 pointer-events-none" : ""}`}>
+                  <JigsawBoard 
+                    pieces={pieces}
+                    gridDimensions={gridDimensions}
+                    image={image}
+                    aspectRatio={aspectRatio}
+                    handlePieceDrop={handlePieceDrop}
+                    gameState={gameState}
+                  />
+                </div>
 
-                {/* === MODAL PREVIEW GAMBAR (FIXED) === */}
+                {/* PAUSED Text */}
+                {isPaused && !showQuitConfirm && gameState !== 'won' && (
+                   <div className="absolute inset-0 flex flex-col items-center justify-center z-10 animate-in fade-in zoom-in pointer-events-none">
+                      <h2 className="text-6xl font-black text-white tracking-widest drop-shadow-2xl">PAUSED</h2>
+                      <p className="text-white/80 mt-2 font-bold">Click play to resume</p>
+                   </div>
+                )}
+
+                {/* Confirm Quit Modal */}
+                {showQuitConfirm && (
+                  <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in">
+                    <div className="bg-white rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl border-2 border-rose-100">
+                       <div className="w-16 h-16 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <AlertTriangle size={32} />
+                       </div>
+                       <h3 className="text-xl font-bold text-slate-800 mb-2">Quit Game?</h3>
+                       <p className="text-slate-500 mb-6 text-sm">Progress kamu akan hilang.</p>
+                       <div className="flex gap-3">
+                          <button onClick={() => setShowQuitConfirm(false)} className="flex-1 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200">
+                             Batal
+                          </button>
+                          <button onClick={confirmQuit} className="flex-1 py-3 rounded-xl bg-rose-500 text-white font-bold hover:bg-rose-600 shadow-lg shadow-rose-200">
+                             Keluar
+                          </button>
+                       </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Preview Modal */}
                 {showPreview && !isPaused && gameState !== 'won' && (
-                  // Klik backdrop untuk tutup
                   <div 
                     onClick={() => setShowPreview(false)}
-                    className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-8 animate-in fade-in duration-200 cursor-pointer"
+                    className="absolute inset-0 z-40 flex items-center justify-center bg-black/80 backdrop-blur-sm p-8 cursor-pointer animate-in fade-in"
                   >
-                    {/* Container Gambar */}
                     <div className="relative max-w-full max-h-full" onClick={(e) => e.stopPropagation()}>
                        <img src={image} className="max-w-full max-h-full rounded-xl shadow-2xl border-2 border-white/50" alt="Preview"/>
-                       
-                       {/* TOMBOL CLOSE (X) */}
-                       <button 
-                         onClick={() => setShowPreview(false)}
-                         className="absolute -top-4 -right-4 bg-rose-500 text-white p-2 rounded-full shadow-lg hover:bg-rose-600 transition hover:scale-110 border-2 border-white"
-                       >
+                       <button onClick={() => setShowPreview(false)} className="absolute -top-4 -right-4 bg-rose-500 text-white p-2 rounded-full shadow-lg border-2 border-white">
                          <X size={24} strokeWidth={3} />
                        </button>
                     </div>
@@ -108,44 +148,18 @@ export default function PuzzlePage() {
                 )}
             </div>
 
-            {/* FLOATING TOOLBAR */}
-            <div className="absolute bottom-6 left-0 right-0 flex justify-center z-30">
-               <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-md p-2 rounded-2xl border border-white/10 shadow-2xl">
-                  
-                  {/* Quit */}
-                  <button onClick={() => setGameState('menu')} className="p-3 rounded-xl hover:bg-rose-500/20 text-rose-400 hover:text-rose-200 transition">
-                     <XCircle size={24} />
-                  </button>
+            {/* TOOLBAR BARU */}
+            <PuzzleToolbar 
+              gameState={gameState}
+              isPaused={isPaused}
+              showPreview={showPreview}
+              onQuit={handleQuitRequest}      
+              onTogglePreview={() => setShowPreview(!showPreview)}
+              onTogglePause={togglePause}     
+              onToggleFullScreen={toggleFullScreen}
+            />
 
-                  <div className="w-px h-8 bg-white/10 mx-1"></div>
-
-                  {/* Preview (Mata) - Sekarang Toggle Klik */}
-                  <button 
-                    onClick={() => setShowPreview(!showPreview)}
-                    className={`p-3 rounded-xl transition ${showPreview ? 'bg-teal-500 text-white' : 'hover:bg-white/10 text-slate-300 hover:text-white'}`}
-                    title="Toggle Preview"
-                  >
-                     <Eye size={24} />
-                  </button>
-
-                  {/* Pause */}
-                  {gameState !== 'won' && (
-                    <button onClick={togglePause} className="p-3 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition">
-                       {isPaused ? <Play fill="currentColor" size={24}/> : <Pause fill="currentColor" size={24}/>}
-                    </button>
-                  )}
-
-                  <div className="w-px h-8 bg-white/10 mx-1"></div>
-
-                  {/* Fullscreen */}
-                  <button onClick={toggleFullScreen} className="p-3 rounded-xl hover:bg-teal-500/20 text-teal-400 hover:text-teal-200 transition">
-                     <Maximize size={24} />
-                  </button>
-
-               </div>
-            </div>
-
-            {/* OVERLAY MODAL */}
+            {/* OVERLAY */}
             <JigsawOverlay 
               dict={dict}
               gameState={gameState}

@@ -23,6 +23,7 @@
     "greeting_afternoon": "Guten Tag,",
     "greeting_evening": "Guten Abend,",
     "hero_title": "Bereit, deinen",
+    "hero_button": "Erkundung Starten",
     "hero_highlight": "Fokus zu trainieren?",
     "subtitle": "Einfache Spiele, um dein Gehirn zu trainieren und deinen Geist zu beruhigen. Ohne Druck.",
     "card_play": "JETZT SPIELEN",
@@ -82,6 +83,9 @@
     "time_taken": "Spielzeit",
     "play_again": "Nochmal spielen",
     "back_to_menu": "Bild / Level wechseln"
+  },
+  "jigsaw": {
+    "upload": "Hochladen"
   },
   "footer": {
     "text": "Für Fokus gebaut, nicht für Sucht."

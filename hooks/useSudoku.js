@@ -3,11 +3,9 @@ import { useState, useEffect, useCallback } from "react";
 import { getSudoku } from "sudoku-gen";
 import useSound from "use-sound"; 
 
-const POP_SOUND = "https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3";
-const ERROR_SOUND = "https://assets.mixkit.co/active_storage/sfx/2572/2572-preview.mp3";
-const WIN_SOUND = "https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3";
-// Sound "Ting" kalau angka lengkap (Chime)
-const NUMBER_COMPLETE_SOUND = "https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3"; 
+// HANYA SUARA ENDING (Pake file lokal)
+const LOSE_SOUND = "/sounds/lose.mp3";   // Pas Game Over
+const WIN_SOUND = "/sounds/win.mp3";     // Pas Menang
 
 export function useSudoku() {
   const [initialGrid, setInitialGrid] = useState(Array(81).fill(""));
@@ -22,11 +20,11 @@ export function useSudoku() {
   const [isWon, setIsWon] = useState(false);
   const [timer, setTimer] = useState(0);
 
-  // Setup Sounds
-  const [playPop] = useSound(POP_SOUND, { volume: 0.5, interrupt: true });
-  const [playError] = useSound(ERROR_SOUND, { volume: 0.5 });
-  const [playWin] = useSound(WIN_SOUND, { volume: 0.5 });
-  const [playComplete] = useSound(NUMBER_COMPLETE_SOUND, { volume: 0.6 });
+  // Setup Sounds (Cuma Win & Lose)
+  const [playLose] = useSound(LOSE_SOUND, { volume: 0.5 });
+  const [playWin] = useSound(WIN_SOUND, { volume: 0.6 });
+
+  // CATATAN: Logic Backsound dihapus dari sini, dipindah ke GameControls
 
   const newGame = useCallback((level = "easy") => {
     const sudoku = getSudoku(level);
@@ -43,10 +41,8 @@ export function useSudoku() {
     setSelectedCell(null);
   }, []);
 
-  // Hitung angka mana saja (1-9) yang sudah lengkap & benar
   const completedNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter(num => {
     const numStr = num.toString();
-    // Cek berapa banyak angka ini ada di grid DAN posisinya benar sesuai solusi
     const count = grid.filter((cell, idx) => cell === numStr && solution[idx] === numStr).length;
     return count === 9;
   });
@@ -58,43 +54,38 @@ export function useSudoku() {
     const valStr = value.toString();
     const correctVal = solution[selectedCell];
 
-    // 1. Masukkan angka ke Grid (Mau benar atau salah, tetap masuk buat visual)
     const newGrid = [...grid];
     newGrid[selectedCell] = valStr;
     setGrid(newGrid);
 
-    // 2. Cek Kebenaran Logic Game
+    // LOGIC BARU: Hening saat main, bunyi pas ending doang
     if (valStr !== correctVal) {
       // SALAH
       setMistakes(prev => {
         const newMistakes = prev + 1;
+        // Cek apakah ini kesalahan ke-3 (GAME OVER)?
         if (newMistakes >= 3) {
           setIsGameOver(true);
           setIsPlaying(false);
+          playLose(); // 🔊 BARU BUNYI DISINI (Pas Kalah Total)
         }
         return newMistakes;
       });
-      playError();
+      // playError(); <-- DIHAPUS (Biar hening pas salah biasa)
     } else {
       // BENAR
-      playPop();
+      // playPop(); <-- DIHAPUS (Biar hening pas isi angka)
 
-      // Cek apakah angka yang baru dimasukkan ini jadi LENGKAP (9 biji)?
-      const countCorrect = newGrid.filter((cell, idx) => cell === valStr && solution[idx] === valStr).length;
-      if (countCorrect === 9) {
-        playComplete(); // Bunyi Ting!
-      }
-      
       // Cek Menang Total
       if (newGrid.join("") === solution.join("")) {
         setIsWon(true);
         setIsPlaying(false);
-        playWin();
+        playWin(); // 🔊 BARU BUNYI DISINI (Pas Menang Total)
       }
     }
-  }, [grid, initialGrid, isPlaying, isWon, isGameOver, selectedCell, solution, playPop, playError, playWin, playComplete]);
+  }, [grid, initialGrid, isPlaying, isWon, isGameOver, selectedCell, solution, playLose, playWin]);
 
-  // Logic Keyboard
+  // Logic Keyboard (Tetap sama)
   useEffect(() => {
     const handleKeyDown = (e) => {
         if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
@@ -125,7 +116,7 @@ export function useSudoku() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedCell, isPlaying, handleInput, grid, initialGrid]);
 
-  // Timer
+  // Timer (Tetap sama)
   useEffect(() => {
     let interval;
     if (isPlaying && !isWon && !isGameOver) {
@@ -145,6 +136,6 @@ export function useSudoku() {
     isPlaying, isWon, isGameOver,
     mistakes, timer: formatTime(timer), difficulty,
     selectedCell, setSelectedCell, handleInput, newGame, setIsPlaying,
-    completedNumbers // Export data angka yg udah selesai ke UI
+    completedNumbers 
   };
 }

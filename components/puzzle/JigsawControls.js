@@ -59,7 +59,10 @@ export default function JigsawControls({ dict, pieceCount, setPieceCount, image,
              // Kalau belum, tampilkan ikon upload
              <>
                <Upload size={24} className="mb-2"/>
-               <span className="text-xs font-bold text-center">Upload</span>
+               {/* Pastikan props 'dict' sudah diterima di komponen ini */}
+<span className="text-xs font-bold text-center">
+  {dict.jigsaw?.upload || "Upload"} 
+</span>
              </>
           )}
         </button>

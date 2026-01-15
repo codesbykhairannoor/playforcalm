@@ -26,6 +26,7 @@
     "hero_highlight": "你的专注力了吗？",
     "subtitle": "训练大脑、平复心境的简单游戏。没有分数，没有压力。",
     "card_play": "立即开始",
+    "hero_button": "开始探索",
     "card_sudoku_title": "禅意数独",
     "card_sudoku_desc": "排列数字，用逻辑理清思绪。",
     "card_puzzle_title": "记忆小径",
@@ -82,6 +83,9 @@
     "time_taken": "游戏用时",
     "play_again": "再玩一次",
     "back_to_menu": "切换图片/难度"
+  },
+  "jigsaw": {
+    "upload": "上传"
   },
   "footer": {
     "text": "专为专注而生，而非成瘾。"

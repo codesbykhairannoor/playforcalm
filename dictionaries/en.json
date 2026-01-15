@@ -26,6 +26,7 @@
     "hero_highlight": "Your Focus?",
     "subtitle": "Simple games to train your brain and calm your mind. No scores, no pressure.",
     "card_play": "PLAY NOW",
+    "hero_button": "Start Exploring",
     "card_sudoku_title": "Sudoku Zen",
     "card_sudoku_desc": "Arrange numbers, declutter your mind with logic.",
     "card_puzzle_title": "Memory Lane",
@@ -87,5 +88,8 @@
 
   "footer": {
     "text": "Built for focus, not addiction."
+  },
+  "jigsaw": {
+    "upload": "Upload"
   }
 }
