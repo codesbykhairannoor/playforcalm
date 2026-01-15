@@ -28,7 +28,17 @@
     "card_sudoku_title": "Sudoku Zen",
     "card_sudoku_desc": "Susun angka, rapikan pikiran dengan logika sederhana.",
     "card_puzzle_title": "Memory Lane",
-    "card_puzzle_desc": "Visualisasikan kembali kenangan indahmu."
+    "card_puzzle_desc": "Visualisasikan kembali kenangan indahmu.",
+    "benefits_title": "Perjalanan Menuju Ketenangan",
+    "benefit_1_title": "Digital Detox",
+    "benefit_1_desc": "Lepaskan diri dari notifikasi dan kebisingan media sosial untuk sementara.",
+    "benefit_2_title": "Fokus Mendalam",
+    "benefit_2_desc": "Latih otak untuk tetap tenang saat menyelesaikan satu tugas sederhana.",
+    "benefit_3_title": "Pikiran Jernih",
+    "benefit_3_desc": "Capai kondisi 'Flow' di mana kecemasan berganti dengan kepuasan batin.",
+    "quote_text": "Ketenangan bukanlah ketiadaan masalah, melainkan kemampuan untuk menghadapinya dengan kepala dingin.",
+    "quote_title": "Filosofi Hari Ini",
+    "step_o" : "Langkah"
   },
   "sudoku": {
     "difficulty_label": "Tingkat Kesulitan",
