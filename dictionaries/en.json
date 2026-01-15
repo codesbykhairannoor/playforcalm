@@ -28,7 +28,17 @@
     "card_sudoku_title": "Sudoku Zen",
     "card_sudoku_desc": "Arrange numbers, declutter your mind with logic.",
     "card_puzzle_title": "Memory Lane",
-    "card_puzzle_desc": "Visualize and piece together your fond memories."
+    "card_puzzle_desc": "Visualize and piece together your fond memories.",
+    "benefits_title": "The Journey to Serenity",
+    "benefit_1_title": "Digital Detox",
+    "benefit_1_desc": "Detach yourself from notifications and social media noise for a while.",
+    "benefit_2_title": "Deep Focus",
+    "benefit_2_desc": "Train your brain to remain calm while completing a single, simple task.",
+    "benefit_3_title": "Clear Mind",
+    "benefit_3_desc": "Achieve a 'Flow' state where anxiety is replaced by inner satisfaction.",
+    "quote_text": "Calmness is not the absence of trouble, but the ability to deal with it with a clear head.",
+    "quote_title": "Today's Philosophy",
+    "step_o" : "Step"
   },
   "sudoku": {
     "difficulty_label": "Difficulty",
@@ -55,13 +65,25 @@
     "too_many_mistakes": "Too many mistakes.",
     "try_again": "Try Again"
   },
-  "puzzle": {
-    "upload_title": "Choose Image",
-    "upload_btn": "Upload Your Photo",
-    "use_sample": "Use Sample Image",
-    "moves": "Moves",
-    "won_title": "Memory Restored! 📸"
+  
+"puzzle": {
+    "title": "Puzzle",
+    "desc": "Piece together scattered fragments into a whole memory.",
+    "upload_label": "Choose Photo",
+    "change_photo": "Change Photo",
+    "pieces_count": "Pieces",
+    "time": "Time",
+    "difficulty": "Piece Count",
+    "start_game": "Start Puzzle",
+    "won_title": "Perfect! 🧩",
+    "won_desc": "Every piece has found its place.",
+    "select_image": "Choose Photo",
+    "pieces": "Pieces",
+    "time_taken": "Play Time",
+    "play_again": "Play Again",
+    "back_to_menu": "Switch Image / Level"
   },
+
   "footer": {
     "text": "Built for focus, not addiction."
   }

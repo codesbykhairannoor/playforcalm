@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "PlayForCalm",
-  description: "A gentle way to train your focus.",
+  description: "Train your focus and relax.",
 };
 
 export default function RootLayout({ children }) {
