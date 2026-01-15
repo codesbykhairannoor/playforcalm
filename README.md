@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/codesbykhairannoor/playforcalm/main/public/logo.png" width="120" alt="PlayForCalm Logo" />
-</p>
+
 
 <h1 align="center">🍃 PlayForCalm</h1>
 
