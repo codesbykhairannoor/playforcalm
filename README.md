@@ -3,7 +3,10 @@
 </p>
 
 <h1 align="center">🍃 PlayForCalm</h1>
-<p align="center"><i>A Zen-Oriented Interactive Web Experience for Focus & Mental Clarity</i></p>
+
+<p align="center">
+  <i>A Zen-oriented interactive web experience for focus & mental clarity</i>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-15-black?logo=next.js" />
@@ -15,28 +18,31 @@
 
 ---
 
-## 🧠 About the Project
+## 🧠 About
 
-**PlayForCalm** is an interactive web application designed to improve **focus, clarity, and mental balance** through calm digital experiences.
+**PlayForCalm** is an interactive web application built to support  
+**focus, clarity, and mental balance** through calm, intentional digital experiences.
 
-Instead of dopamine-heavy mechanics, the project prioritizes:
-- 🧘 mindful interaction
-- 🧠 cognitive clarity
-- 🔁 consistency over competition
+Instead of dopamine-driven loops, this project emphasizes:
 
-Classic puzzles like **Sudoku** and **Memory Games** are used as tools for focus training — not stress or pressure.
+- 🧘 Mindful interaction  
+- 🧠 Cognitive clarity  
+- 🔁 Consistency over competition  
+
+Classic puzzles like **Sudoku** and **Memory Games** are reframed as  
+**focus-training tools** — not sources of stress or pressure.
 
 ---
 
-## ✨ Features Overview
+## ✨ Features
 
 | Feature | Description |
 |------|------------|
-| 🌍 **Multi-language i18n** | Instant language switching without reload |
+| 🌍 **Multi-language (i18n)** | Instant language switching without reload |
 | 🧘 **Zen UI/UX** | Low-contrast colors & calm motion |
-| 📱 **Responsive Layout** | Adaptive navbar (desktop & mobile) |
-| 🔥 **Gamification** | Focus streaks & leveling system |
-| ⚡ **Optimized Performance** | Minimal CLS & fast rendering |
+| 📱 **Responsive Layout** | Adaptive navigation for desktop & mobile |
+| 🔥 **Gentle Gamification** | Focus streaks & leveling (no pressure loops) |
+| ⚡ **Performance-first** | Minimal CLS & fast rendering |
 
 ---
 
@@ -52,36 +58,62 @@ const stack = {
   icons: "Lucide React",
   build: "Turbopack",
 };
+````
 
+---
 
-📦 playforcalm
+## 📦 Project Structure
+
+```txt
+playforcalm
  ┣ 📂 app
- ┃ ┣ 📜 layout.tsx        # Root layout + providers
+ ┃ ┣ 📜 layout.tsx        # Root layout & global providers
  ┃ ┣ 📜 icon.tsx          # Dynamic favicon (Edge Runtime)
- ┃ ┗ 📜 page.tsx          # Main entry
+ ┃ ┗ 📜 page.tsx          # Main entry point
  ┣ 📂 components
  ┃ ┣ 📂 layout            # Navbar, Footer
- ┃ ┗ 📂 ui                # Buttons, overlays, cards
- ┣ 📂 context             # Language & Gamification state
+ ┃ ┗ 📂 ui                # Buttons, cards, overlays
+ ┣ 📂 context             # Language & gamification state
  ┣ 📂 dictionaries        # i18n JSON files
  ┗ 📂 public              # Static assets
+```
 
+---
 
-🎞️ UX Philosophy (Why It Feels Calm)
+## 🎞️ UX Philosophy
+
+<sub>Why it feels calm — not empty</sub>
+
+```mermaid
 graph TD
 A[Minimal UI] --> B[Lower Cognitive Load]
 B --> C[Better Focus]
 C --> D[Consistent Usage]
+```
 
-🎨 Color palette avoids harsh contrast
-🎞️ Animations are state-based, not decorative
-⏱️ Transitions guide attention, not distract it
+* 🎨 Color palette avoids harsh contrast
+* 🎞️ Animations are **state-driven**, not decorative
+* ⏱️ Transitions guide attention — never distract it
 
-🧪 Development Workflow
-feat/*     # new features
-fix/*      # bug fixes
-refactor/* # structural improvements
+---
 
-✅ Pull Request based workflow
-🔄 CI pipeline for build validation
-🧹 Consistent code formatting
+## 🧪 Development Workflow
+
+```txt
+feat/*      → new features
+fix/*       → bug fixes
+refactor/*  → structural improvements
+```
+
+* ✅ Pull request–based workflow
+* 🔄 CI pipeline for build validation
+* 🧹 Consistent linting & formatting
+
+---
+
+<p align="center">
+  <sub>Built to feel quiet. Designed to stay.</sub>
+</p>
+```
+
+--
