@@ -27,12 +27,12 @@ export default function SudokuPage() {
     <div className="min-h-screen pt-24 pb-10 px-4 flex flex-col items-center justify-center bg-[#f8fafc]">
       {isWon && <Confetti recycle={false} numberOfPieces={500} />}
 
-      <div className="flex flex-col lg:flex-row items-start justify-center gap-10 w-full max-w-6xl">
+      <div className="flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-10 w-full max-w-6xl">
         
-        {/* === KIRI: CLEAN BOARD === */}
+        {/* === KIRI: BOARD AREA === */}
         <div className="flex-1 w-full flex flex-col items-center">
            
-           {/* Mobile Header (Tetap muncul di HP) */}
+           {/* Mobile Header */}
            <div className="lg:hidden w-full mb-4">
               <GameHeader dict={dict} timer={timer} mistakes={mistakes} difficulty={difficulty} />
            </div>
@@ -41,7 +41,7 @@ export default function SudokuPage() {
              <SudokuBoard 
                grid={grid} 
                initialGrid={initialGrid} 
-               solution={solution} // Kirim solution buat cek merah
+               solution={solution} 
                selectedCell={selectedCell} 
                setSelectedCell={setSelectedCell}
              />
@@ -51,12 +51,23 @@ export default function SudokuPage() {
                 <GameOverlay dict={dict} status="paused" />
              )}
            </div>
+
+           {/* 👇 INI KUNCINYA: GameControls muncul di bawah board saat MOBILE */}
+           <div className="lg:hidden w-full mt-6">
+              <GameControls 
+                dict={dict}
+                handleInput={handleInput}
+                newGame={newGame}
+                isPlaying={isPlaying}
+                setIsPlaying={setIsPlaying}
+                difficulty={difficulty}
+                completedNumbers={completedNumbers}
+              />
+           </div>
         </div>
 
-        {/* === KANAN: STATS & CONTROLS === */}
-        <div className="w-full lg:w-[360px] flex flex-col gap-6">
-          
-          {/* Header Stats dipindah ke Sini (Desktop Only) */}
+        {/* === KANAN: STATS & CONTROLS (Desktop Only) === */}
+        <div className="hidden lg:flex w-full lg:w-[360px] flex-col gap-6">
           <div className="hidden lg:block">
             <GameHeader dict={dict} timer={timer} mistakes={mistakes} difficulty={difficulty} />
           </div>
@@ -77,8 +88,17 @@ export default function SudokuPage() {
             onRestart={newGame}
             difficulty={difficulty}
           />
-
         </div>
+
+        {/* Overlay Menang/Kalah (Global) */}
+        {(isWon || isGameOver) && (
+          <GameOverlay 
+            dict={dict} 
+            status={getOverlayStatus()} 
+            onRestart={newGame}
+            difficulty={difficulty}
+          />
+        )}
       </div>
     </div>
   );

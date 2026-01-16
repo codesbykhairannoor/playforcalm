@@ -1,5 +1,5 @@
 "use client";
-import { RotateCcw, Play, Pause, Music, ChevronDown, Check } from "lucide-react";
+import { RotateCcw, Play, Pause, Music, ChevronDown, Check, Eraser } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 // 🎵 DAFTAR LAGU
@@ -9,20 +9,19 @@ const TRACKS = [
   { name: "Lo-Fi Beats", file: "/sounds/lofi.mp3" }      
 ];
 
-export default function GameControls({ dict, handleInput, newGame, isPlaying, setIsPlaying, difficulty, completedNumbers = [] }) {
-  
+export default function GameControls({ 
+  dict, handleInput, newGame, isPlaying, setIsPlaying, difficulty, completedNumbers = [] 
+}) {
   const audioRef = useRef(null);
-  const menuRef = useRef(null); // 1. Ref buat nandain area menu
+  const menuRef = useRef(null);
   const [isMusicOn, setIsMusicOn] = useState(false);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
 
-  // Inisialisasi Audio
   useEffect(() => {
     audioRef.current = new Audio(TRACKS[0].file);
     audioRef.current.loop = true;
     audioRef.current.volume = 0.4;
-
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -31,23 +30,15 @@ export default function GameControls({ dict, handleInput, newGame, isPlaying, se
     };
   }, []);
 
-  // 2. Logic "Click Outside" (Baru)
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Kalau menu lagi buka, DAN kliknya DI LUAR area menuRef
       if (showMenu && menuRef.current && !menuRef.current.contains(event.target)) {
-        setShowMenu(false); // Tutup menu
+        setShowMenu(false);
       }
     };
-
-    // Pasang CCTV di dokumen
     document.addEventListener("mousedown", handleClickOutside);
-    
-    // Copot CCTV pas komponen ilang (biar gak memory leak)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showMenu]); // Jalan setiap status showMenu berubah
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showMenu]);
 
   const changeTrack = (index) => {
     if (!audioRef.current) return;
@@ -56,11 +47,7 @@ export default function GameControls({ dict, handleInput, newGame, isPlaying, se
     audioRef.current.load();
     setCurrentTrackIndex(index);
     setShowMenu(false);
-
-    if (wasPlaying) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) playPromise.catch(e => console.log(e));
-    }
+    if (wasPlaying) audioRef.current.play().catch(e => console.log(e));
   };
 
   const toggleMusic = () => {
@@ -69,22 +56,21 @@ export default function GameControls({ dict, handleInput, newGame, isPlaying, se
       audioRef.current.pause();
       setIsMusicOn(false);
     } else {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) playPromise.catch(e => console.log(e));
+      audioRef.current.play().catch(e => console.log(e));
       setIsMusicOn(true);
     }
   };
 
   return (
-    <div className="flex flex-col gap-6 w-full">
+    <div className="flex flex-col gap-4 sm:gap-6 w-full">
       
       {/* 1. DIFFICULTY TABS */}
-      <div className="flex bg-slate-100 p-1 rounded-lg">
+      <div className="flex bg-slate-100 p-1 rounded-xl">
         {['easy', 'medium', 'hard'].map((level) => (
           <button
             key={level}
             onClick={() => newGame(level)}
-            className={`flex-1 py-2 text-xs sm:text-sm font-bold rounded-md transition-all 
+            className={`flex-1 py-2 text-[10px] sm:text-sm font-bold rounded-lg transition-all 
               ${difficulty === level ? 'bg-white text-teal-600 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
           >
             {dict.sudoku[level]}
@@ -92,8 +78,8 @@ export default function GameControls({ dict, handleInput, newGame, isPlaying, se
         ))}
       </div>
 
-      {/* 2. NUMPAD */}
-      <div className="grid grid-cols-3 gap-2">
+      {/* 2. NUMPAD (BALIK KE TEAL & SHADOW ASLI) */}
+      <div className="flex flex-row lg:grid lg:grid-cols-3 gap-1.5 sm:gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 scrollbar-hide">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => {
           const isDone = completedNumbers.includes(num);
           return (
@@ -102,7 +88,7 @@ export default function GameControls({ dict, handleInput, newGame, isPlaying, se
               onClick={() => !isDone && handleInput(num)}
               disabled={isDone}
               className={`
-                h-12 sm:h-14 rounded-xl border text-xl sm:text-2xl font-bold transition-all
+                flex-1 lg:flex-none h-12 sm:h-14 min-w-[38px] lg:min-w-0 rounded-xl border text-xl sm:text-2xl font-bold transition-all
                 ${isDone 
                   ? "opacity-0 pointer-events-none" 
                   : "bg-white border-slate-200 text-teal-600 shadow-[0_4px_0_0_rgba(203,213,225,1)] active:shadow-none active:translate-y-1 hover:bg-teal-50"
@@ -113,11 +99,19 @@ export default function GameControls({ dict, handleInput, newGame, isPlaying, se
             </button>
           );
         })}
+        
+        {/* Tombol Hapus (Hanya muncul di Mobile Row) */}
+        <button
+          onClick={() => handleInput(null)}
+          className="flex-1 lg:hidden h-12 min-w-[38px] rounded-xl border border-rose-100 bg-rose-50 text-rose-500 flex items-center justify-center active:translate-y-1 active:shadow-none shadow-[0_4px_0_0_rgba(255,228,230,1)] transition-all"
+        >
+          <Eraser size={20} />
+        </button>
       </div>
 
       {/* 3. CONTROLS */}
       <div className="grid grid-cols-4 gap-2 relative">
-         <button onClick={() => newGame(difficulty)} className="col-span-2 py-3 rounded-xl bg-slate-200 text-slate-600 font-bold hover:bg-slate-300 transition flex items-center justify-center gap-2 text-sm">
+         <button onClick={() => newGame(difficulty)} className="col-span-2 py-3 rounded-xl bg-slate-200 text-slate-600 font-bold hover:bg-slate-300 transition flex items-center justify-center gap-2 text-xs sm:text-sm">
             <RotateCcw size={18}/> {dict.sudoku.new_game}
          </button>
          
@@ -125,7 +119,7 @@ export default function GameControls({ dict, handleInput, newGame, isPlaying, se
             {isPlaying ? <Pause size={18}/> : <Play size={18}/>}
          </button>
 
-         {/* 🎵 TOMBOL MUSIK + MENU (Dibungkus ref={menuRef}) */}
+         {/* 🎵 MUSIK */}
          <div className="col-span-1 relative" ref={menuRef}>
             <button 
               onClick={toggleMusic} 
@@ -137,15 +131,14 @@ export default function GameControls({ dict, handleInput, newGame, isPlaying, se
             
             <button 
               onClick={() => setShowMenu(!showMenu)}
-              className="absolute -top-2 -right-2 bg-slate-800 text-white rounded-full p-1 shadow-md hover:bg-slate-700"
+              className="absolute -top-1 -right-1 bg-slate-800 text-white rounded-full p-1 shadow-md hover:bg-slate-700"
             >
-               <ChevronDown size={12}/>
+               <ChevronDown size={10}/>
             </button>
 
-            {/* POPUP MENU */}
             {showMenu && (
-              <div className="absolute bottom-full right-0 mb-2 w-48 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-200">
-                 <div className="p-2 text-xs font-bold text-slate-400 bg-slate-50 uppercase tracking-wider">Select Ambience</div>
+              <div className="absolute bottom-full right-0 mb-2 w-48 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50 animate-in fade-in zoom-in-95">
+                 <div className="p-2 text-[10px] font-bold text-slate-400 bg-slate-50 uppercase tracking-wider text-center">Select Ambience</div>
                  {TRACKS.map((track, index) => (
                    <button
                      key={index}

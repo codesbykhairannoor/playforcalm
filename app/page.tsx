@@ -70,8 +70,12 @@ export default function Home() {
               {dict.home?.games_title}
             </h2>
             <p className="text-slate-500 text-lg md:text-xl max-w-xl leading-relaxed">
-              Pilih aktivitas yang paling sesuai dengan <span className="text-slate-800 font-semibold italic">ritme pikiranmu</span> saat ini.
-            </p>
+  {dict.home.description}{" "}
+  <span className="text-slate-800 font-semibold italic">
+    {dict.home.rhythm}
+  </span>{" "}
+  {dict.home.current}
+</p>
           </div>
           
           {/* Label tambahan di sisi kanan buat penyeimbang visual */}
@@ -96,9 +100,12 @@ export default function Home() {
             </div>
             <h3 className="text-3xl font-bold text-slate-800 mb-4">{dict.home?.card_sudoku_title}</h3>
             <p className="text-slate-600 mb-10 text-lg leading-relaxed flex-grow">{dict.home?.card_sudoku_desc}</p>
-            <Link href="/sudoku" className="w-full sm:w-auto px-10 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 text-center">
-              Play Sudoku
-            </Link>
+            <Link 
+  href="sudoku" 
+  className="w-full sm:w-auto px-10 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 text-center"
+>
+  {dict.common.play_sudoku}
+</Link>
           </motion.div>
 
           {/* Puzzle Card */}
@@ -114,9 +121,12 @@ export default function Home() {
             </div>
             <h3 className="text-3xl font-bold text-slate-800 mb-4">{dict.home?.card_puzzle_title}</h3>
             <p className="text-slate-600 mb-10 text-lg leading-relaxed flex-grow">{dict.home?.card_puzzle_desc}</p>
-            <Link href="/puzzle" className="w-full sm:w-auto px-10 py-4 bg-pink-600 text-white rounded-2xl font-bold hover:bg-pink-700 transition shadow-lg shadow-pink-200 text-center">
-              Start Puzzle
-            </Link>
+            <Link 
+  href="puzzle" 
+  className="w-full sm:w-auto px-10 py-4 bg-pink-600 text-white rounded-2xl font-bold hover:bg-pink-700 transition shadow-lg shadow-pink-200 text-center"
+>
+  {dict.common.start_puzzle}
+</Link>
           </motion.div>
         </div>
       </section>

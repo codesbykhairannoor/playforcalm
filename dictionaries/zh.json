@@ -2,7 +2,9 @@
   "common": {
     "loading": "正在加载宁静...",
     "back": "返回",
-    "close": "关闭"
+    "close": "关闭",
+    "play_sudoku": "玩数独",
+    "start_puzzle": "开始拼图"
   },
   "nav": {
     "logo": "PlayForCalm",
@@ -40,7 +42,10 @@
     "benefit_3_desc": "达到“心流”状态，让焦虑转化为内在的满足感。",
     "quote_text": "冷静并非没有烦恼，而是能够清醒地处理问题。",
     "quote_title": "今日哲学",
-    "step_o": "步骤"
+    "step_o": "步骤",
+    "description": "选择当前最适合你",
+    "rhythm": "心理节奏",
+    "current": "的活动。"
   },
   "sudoku": {
     "difficulty_label": "难度",

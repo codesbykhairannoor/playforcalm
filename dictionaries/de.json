@@ -2,7 +2,9 @@
   "common": {
     "loading": "Ruhe wird geladen...",
     "back": "Zurück",
-    "close": "Schließen"
+    "close": "Schließen",
+    "play_sudoku": "Sudoku spielen",
+    "start_puzzle": "Puzzle starten"
   },
   "nav": {
     "logo": "PlayForCalm",
@@ -40,7 +42,10 @@
     "benefit_3_desc": "Erreiche den 'Flow'-Zustand, in dem Angst durch innere Zufriedenheit ersetzt wird.",
     "quote_text": "Ruhe ist nicht die Abwesenheit von Problemen, sondern die Fähigkeit, mit ihnen umzugehen.",
     "quote_title": "Heutige Philosophie",
-    "step_o": "Schritt"
+    "step_o": "Schritt",
+    "description": "Wähle die Aktivität, die gerade zu deinem",
+    "rhythm": "geistigen Rhythmus",
+    "current": "passt."
   },
   "sudoku": {
     "difficulty_label": "Schwierigkeit",

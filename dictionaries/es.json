@@ -2,7 +2,9 @@
   "common": {
     "loading": "Cargando Paz...",
     "back": "Volver",
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "play_sudoku": "Jugar Sudoku",
+    "start_puzzle": "Empezar Puzzle"
   },
   "nav": {
     "logo": "PlayForCalm",
@@ -24,6 +26,9 @@
     "greeting_evening": "Buenas Noches,",
     "hero_title": "¿Listo para Entrenar",
     "hero_highlight": "tu Enfoque?",
+    "description": "Elige la actividad que mejor se adapte a tu",
+    "rhythm": "ritmo mental",
+    "current": "en este momento.",
     "hero_button": "Empezar a Explorar",
     "subtitle": "Juegos simples para entrenar tu cerebro y calmar tu mente. Sin puntajes, sin presión.",
     "card_play": "JUGAR AHORA",

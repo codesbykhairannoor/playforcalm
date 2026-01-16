@@ -2,7 +2,9 @@
   "common": {
     "loading": "Loading Peace...",
     "back": "Back",
-    "close": "Close"
+    "close": "Close",
+    "play_sudoku": "Play Sudoku",
+    "start_puzzle": "Start Puzzle"
   },
   "nav": {
     "logo": "PlayForCalm",
@@ -40,7 +42,10 @@
     "benefit_3_desc": "Achieve a 'Flow' state where anxiety is replaced by inner satisfaction.",
     "quote_text": "Calmness is not the absence of trouble, but the ability to deal with it with a clear head.",
     "quote_title": "Today's Philosophy",
-    "step_o" : "Step"
+    "step_o" : "Step",
+    "description": "Choose the activity that best suits your",
+    "rhythm": "mental rhythm",
+    "current": "right now."
   },
   "sudoku": {
     "difficulty_label": "Difficulty",

@@ -2,7 +2,9 @@
   "common": {
     "loading": "Memuat Ketenangan...",
     "back": "Kembali",
-    "close": "Tutup"
+    "close": "Tutup",
+    "play_sudoku": "Main Sudoku",
+    "start_puzzle": "Mulai Puzzle"
   },
   "nav": {
     "logo": "PlayForCalm",
@@ -40,7 +42,10 @@
     "benefit_3_desc": "Capai kondisi 'Flow' di mana kecemasan berganti dengan kepuasan batin.",
     "quote_text": "Ketenangan bukanlah ketiadaan masalah, melainkan kemampuan untuk menghadapinya dengan kepala dingin.",
     "quote_title": "Filosofi Hari Ini",
-    "step_o" : "Langkah"
+    "step_o" : "Langkah",
+    "description": "Pilih aktivitas yang paling sesuai dengan",
+    "rhythm": "ritme pikiranmu",
+    "current": "saat ini."
   },
   "sudoku": {
     "difficulty_label": "Tingkat Kesulitan",

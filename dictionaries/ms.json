@@ -2,7 +2,9 @@
   "common": {
     "loading": "Memuatkan Ketenangan...",
     "back": "Kembali",
-    "close": "Tutup"
+    "close": "Tutup",
+    "play_sudoku": "Main Sudoku",
+    "start_puzzle": "Mula Teka-Teki"
   },
   "nav": {
     "logo": "PlayForCalm",
@@ -23,6 +25,9 @@
     "greeting_afternoon": "Selamat Tengah Hari,",
     "greeting_evening": "Selamat Petang,",
     "hero_title": "Sedia Melatih",
+    "description": "Pilih aktiviti yang paling sesuai dengan",
+    "rhythm": "rentak minda",
+    "current": "anda sekarang.",
     "hero_highlight": "Fokus Anda?",
     "hero_button": "Mula Meneroka",
     "subtitle": "Permainan mudah untuk melatih otak dan menenangkan fikiran. Tanpa skor, tanpa tekanan.",

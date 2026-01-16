@@ -50,7 +50,12 @@ export function useSudoku() {
   const handleInput = useCallback((value) => {
     if (!isPlaying || isWon || isGameOver || selectedCell === null) return;
     if (initialGrid[selectedCell] !== "") return; 
-
+if (value === null || value === "") {
+    const newGrid = [...grid];
+    newGrid[selectedCell] = "";
+    setGrid(newGrid);
+    return;
+  }
     const valStr = value.toString();
     const correctVal = solution[selectedCell];
 
